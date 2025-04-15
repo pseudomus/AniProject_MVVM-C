@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct ContentView: View {
     var network: Network = Network()
     var body: some View {
@@ -23,6 +22,7 @@ struct ContentView: View {
             }
         })
         .padding()
+
     }
 }
 

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E07B26632D9DCA12002A21C9 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = E07B26622D9DCA12002A21C9 /* Apollo */; };
+		E0AC35972DAEE049004FC30E /* AniAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E0AC35962DAEE049004FC30E /* AniAPI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +31,32 @@
 		E07B26312D9DC52C002A21C9 /* AniList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07B26412D9DC52E002A21C9 /* AniListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07B264B2D9DC52E002A21C9 /* AniListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0AC35942DAEDECB004FC30E /* AniAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AniAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		E0F2DA7D2DA0190200414A27 /* Exceptions for "GraphQL" folder in "AniList" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Queries/AnimeDetails.graphql,
+				Queries/AnimeList.graphql,
+				Queries/SearchQuery.graphql,
+			);
+			target = E07B26302D9DC52C002A21C9 /* AniList */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		E0F2DA7E2DA0190200414A27 /* Exceptions for "GraphQL" folder in "Compile Sources" phase from "AniList" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = E07B262D2D9DC52C002A21C9 /* Sources */;
+			membershipExceptions = (
+				Queries/AnimeDetails.graphql,
+				Queries/AnimeList.graphql,
+				Queries/SearchQuery.graphql,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		E07B26332D9DC52C002A21C9 /* AniList */ = {
@@ -49,9 +74,13 @@
 			path = AniListUITests;
 			sourceTree = "<group>";
 		};
-		E07B27B62D9F42BA002A21C9 /* New Folder */ = {
+		E07B27B62D9F42BA002A21C9 /* GraphQL */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "New Folder";
+			exceptions = (
+				E0F2DA7D2DA0190200414A27 /* Exceptions for "GraphQL" folder in "AniList" target */,
+				E0F2DA7E2DA0190200414A27 /* Exceptions for "GraphQL" folder in "Compile Sources" phase from "AniList" target */,
+			);
+			path = GraphQL;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -61,7 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E07B26632D9DCA12002A21C9 /* Apollo in Frameworks */,
+				E0AC35972DAEE049004FC30E /* AniAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +114,8 @@
 		E07B26282D9DC52C002A21C9 = {
 			isa = PBXGroup;
 			children = (
-				E07B27B62D9F42BA002A21C9 /* New Folder */,
+				E0AC35942DAEDECB004FC30E /* AniAPI */,
+				E07B27B62D9F42BA002A21C9 /* GraphQL */,
 				E07B26332D9DC52C002A21C9 /* AniList */,
 				E07B26442D9DC52E002A21C9 /* AniListTests */,
 				E07B264E2D9DC52E002A21C9 /* AniListUITests */,
@@ -113,7 +143,7 @@
 				E07B262D2D9DC52C002A21C9 /* Sources */,
 				E07B262E2D9DC52C002A21C9 /* Frameworks */,
 				E07B262F2D9DC52C002A21C9 /* Resources */,
-				E07B27C62D9F5C80002A21C9 /* Run Script */,
+				E07B27C62D9F5C80002A21C9 /* SwiftLintScript */,
 			);
 			buildRules = (
 			);
@@ -121,11 +151,11 @@
 			);
 			fileSystemSynchronizedGroups = (
 				E07B26332D9DC52C002A21C9 /* AniList */,
-				E07B27B62D9F42BA002A21C9 /* New Folder */,
+				E07B27B62D9F42BA002A21C9 /* GraphQL */,
 			);
 			name = AniList;
 			packageProductDependencies = (
-				E07B26622D9DCA12002A21C9 /* Apollo */,
+				E0AC35962DAEE049004FC30E /* AniAPI */,
 			);
 			productName = AniList;
 			productReference = E07B26312D9DC52C002A21C9 /* AniList.app */;
@@ -210,8 +240,9 @@
 			mainGroup = E07B26282D9DC52C002A21C9;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				E07B26612D9DCA12002A21C9 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 				E07B27C52D9F5C52002A21C9 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+				E0F2DA802DA021F800414A27 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+				E0AC35952DAEE049004FC30E /* XCLocalSwiftPackageReference "AniAPI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E07B26322D9DC52C002A21C9 /* Products */;
@@ -250,8 +281,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		E07B27C62D9F5C80002A21C9 /* Run Script */ = {
+		E07B27C62D9F5C80002A21C9 /* SwiftLintScript */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -259,7 +291,7 @@
 			);
 			inputPaths = (
 			);
-			name = "Run Script";
+			name = SwiftLintScript;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -598,15 +630,14 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		E07B26612D9DCA12002A21C9 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.19.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		E0AC35952DAEE049004FC30E /* XCLocalSwiftPackageReference "AniAPI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = AniAPI;
 		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
 		E07B27C52D9F5C52002A21C9 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/SwiftLint/";
@@ -615,13 +646,20 @@
 				minimumVersion = 0.58.2;
 			};
 		};
+		E0F2DA802DA021F800414A27 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.19.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E07B26622D9DCA12002A21C9 /* Apollo */ = {
+		E0AC35962DAEE049004FC30E /* AniAPI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E07B26612D9DCA12002A21C9 /* XCRemoteSwiftPackageReference "apollo-ios" */;
-			productName = Apollo;
+			productName = AniAPI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
