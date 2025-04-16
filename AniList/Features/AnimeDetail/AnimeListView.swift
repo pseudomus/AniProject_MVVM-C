@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import AniAPI
 struct AnimeListView: View {
     var network: Network = Network.shared
     var body: some View {
-        VStack {
+        VStack { 
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
@@ -17,6 +18,9 @@ struct AnimeListView: View {
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            AnimeRequester.shared.requestNewPage()
+        }
 
     }
 }
