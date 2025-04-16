@@ -1,24 +1,28 @@
-// swift-tools-version: 6.0
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.9
 
 import PackageDescription
 
 let package = Package(
-    name: "AniAPI",
-    products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library(
-            name: "AniAPI",
-            targets: ["AniAPI"]),
-    ],
-    targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "AniAPI"),
-        .testTarget(
-            name: "AniAPITests",
-            dependencies: ["AniAPI"]
-        ),
-    ]
+  name: "AniAPI",
+  platforms: [
+    .iOS(.v12),
+    .macOS(.v10_14),
+    .tvOS(.v12),
+    .watchOS(.v5),
+  ],
+  products: [
+    .library(name: "AniAPI", targets: ["AniAPI"]),
+  ],
+  dependencies: [
+    .package(url: "https://github.com/apollographql/apollo-ios", from: "1.0.0"),
+  ],
+  targets: [
+    .target(
+      name: "AniAPI",
+      dependencies: [
+        .product(name: "ApolloAPI", package: "apollo-ios"),
+      ],
+      path: "./Sources"
+    ),
+  ]
 )

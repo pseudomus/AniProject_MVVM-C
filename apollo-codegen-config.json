@@ -1,0 +1,40 @@
+{
+  "schemaNamespace" : "AniAPI",
+  "input" : {
+    "operationSearchPaths" : [
+      "./GraphQL/Queries/**/*.graphql"
+    ],
+    "schemaSearchPaths" : [
+      "./GraphQL/schema.graphqls"
+    ]
+  },
+  "output" : {
+    "testMocks" : {
+      "none" : {}
+    },
+    "schemaTypes" : {
+      "path" : "./AniAPI",
+      "moduleType" : {
+        "swiftPackageManager" : {}
+      }
+    },
+    "operations" : {
+      "inSchemaModule" : {}
+    }
+  },
+  "schemaDownloadConfiguration": {
+    "downloadMethod": {
+        "introspection": {
+            "endpointURL": "https://graphql.anilist.co",
+            "httpMethod": {
+                "POST": {}
+            },
+            "includeDeprecatedInputValues": false,
+            "outputFormat": "SDL"
+        }
+    },
+    "downloadTimeout": 60,
+    "headers": [],
+    "outputPath": "./GraphQL/schema.graphqls"
+  }
+}

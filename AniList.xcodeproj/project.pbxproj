@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E0AC35972DAEE049004FC30E /* AniAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E0AC35962DAEE049004FC30E /* AniAPI */; };
+		E0AC35E82DAEF0E6004FC30E /* AniAPI in Frameworks */ = {isa = PBXBuildFile; productRef = E0AC35E72DAEF0E6004FC30E /* AniAPI */; };
+		E0AC35F42DAF0BD7004FC30E /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = E0AC35F32DAF0BD7004FC30E /* Apollo */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +33,7 @@
 		E07B26312D9DC52C002A21C9 /* AniList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07B26412D9DC52E002A21C9 /* AniListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E07B264B2D9DC52E002A21C9 /* AniListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E0AC35942DAEDECB004FC30E /* AniAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AniAPI; sourceTree = "<group>"; };
+		E0AC35E52DAEEEC8004FC30E /* AniAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = AniAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -90,6 +92,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E0AC35E82DAEF0E6004FC30E /* AniAPI in Frameworks */,
+				E0AC35F42DAF0BD7004FC30E /* Apollo in Frameworks */,
 				E0AC35972DAEE049004FC30E /* AniAPI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,11 +118,12 @@
 		E07B26282D9DC52C002A21C9 = {
 			isa = PBXGroup;
 			children = (
-				E0AC35942DAEDECB004FC30E /* AniAPI */,
+				E0AC35E52DAEEEC8004FC30E /* AniAPI */,
 				E07B27B62D9F42BA002A21C9 /* GraphQL */,
 				E07B26332D9DC52C002A21C9 /* AniList */,
 				E07B26442D9DC52E002A21C9 /* AniListTests */,
 				E07B264E2D9DC52E002A21C9 /* AniListUITests */,
+				E0AC35F22DAF0BD7004FC30E /* Frameworks */,
 				E07B26322D9DC52C002A21C9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,6 +136,13 @@
 				E07B264B2D9DC52E002A21C9 /* AniListUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E0AC35F22DAF0BD7004FC30E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +168,8 @@
 			name = AniList;
 			packageProductDependencies = (
 				E0AC35962DAEE049004FC30E /* AniAPI */,
+				E0AC35E72DAEF0E6004FC30E /* AniAPI */,
+				E0AC35F32DAF0BD7004FC30E /* Apollo */,
 			);
 			productName = AniList;
 			productReference = E07B26312D9DC52C002A21C9 /* AniList.app */;
@@ -242,7 +256,7 @@
 			packageReferences = (
 				E07B27C52D9F5C52002A21C9 /* XCRemoteSwiftPackageReference "SwiftLint" */,
 				E0F2DA802DA021F800414A27 /* XCRemoteSwiftPackageReference "apollo-ios" */,
-				E0AC35952DAEE049004FC30E /* XCLocalSwiftPackageReference "AniAPI" */,
+				E0AC35E62DAEF0E6004FC30E /* XCLocalSwiftPackageReference "AniAPI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = E07B26322D9DC52C002A21C9 /* Products */;
@@ -298,7 +312,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1; then\n    swiftlint --config \"${SRCROOT}/.swiftlint.yml\"\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -631,7 +645,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		E0AC35952DAEE049004FC30E /* XCLocalSwiftPackageReference "AniAPI" */ = {
+		E0AC35E62DAEF0E6004FC30E /* XCLocalSwiftPackageReference "AniAPI" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = AniAPI;
 		};
@@ -660,6 +674,15 @@
 		E0AC35962DAEE049004FC30E /* AniAPI */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = AniAPI;
+		};
+		E0AC35E72DAEF0E6004FC30E /* AniAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AniAPI;
+		};
+		E0AC35F32DAF0BD7004FC30E /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E0F2DA802DA021F800414A27 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

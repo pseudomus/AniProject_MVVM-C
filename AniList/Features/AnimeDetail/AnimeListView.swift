@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-struct ContentView: View {
-    var network: Network = Network()
+struct AnimeListView: View {
+    var network: Network = Network.shared
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -16,16 +16,11 @@ struct ContentView: View {
 
             Text("Hello, world!")
         }
-        .onAppear(perform: {
-            Task {
-                await network.fetchAnimeData()
-            }
-        })
         .padding()
 
     }
 }
 
 #Preview {
-    ContentView()
+    AnimeListView()
 }
