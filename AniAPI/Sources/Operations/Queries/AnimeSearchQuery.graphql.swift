@@ -7,15 +7,15 @@ public class AnimeSearchQuery: GraphQLQuery {
   public static let operationName: String = "AnimeSearch"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"query AnimeSearch($search: String, $page: Int) { Page(page: $page, perPage: 10) { __typename media(search: $search, type: ANIME) { __typename id title { __typename romaji english native } episodes status coverImage { __typename medium } } } }"#
+      #"query AnimeSearch($search: String!, $page: Int!) { Page(page: $page, perPage: 10) { __typename media(search: $search, type: ANIME) { __typename id title { __typename romaji english native } episodes status coverImage { __typename medium large } } } }"#
     ))
 
-  public var search: GraphQLNullable<String>
-  public var page: GraphQLNullable<Int>
+  public var search: String
+  public var page: Int
 
   public init(
-    search: GraphQLNullable<String>,
-    page: GraphQLNullable<Int>
+    search: String,
+    page: Int
   ) {
     self.search = search
     self.page = page
@@ -120,10 +120,13 @@ public class AnimeSearchQuery: GraphQLQuery {
           public static var __selections: [ApolloAPI.Selection] { [
             .field("__typename", String.self),
             .field("medium", String?.self),
+            .field("large", String?.self),
           ] }
 
           /// The cover image url of the media at medium size
           public var medium: String? { __data["medium"] }
+          /// The cover image url of the media at a large size
+          public var large: String? { __data["large"] }
         }
       }
     }

@@ -43,7 +43,26 @@ extension AnimePreview {
         guard let episodes = anime.episodes,
               let title = anime.title?.romaji,
               let status = anime.status?.rawValue,
-              let imageURLString = URL(string: (anime.coverImage?.medium)!)
+              let imageURLString = URL(string: (anime.coverImage?.large)!)
+        else {
+            return nil
+        }
+
+        self.init(id: id,
+                  image: imageURLString,
+                  title: title,
+                  status: status,
+                  episodes: episodes)
+    }
+}
+
+extension AnimePreview {
+    init?(anime: AnimeSearchQuery.Data.Page.Medium) {
+        let id = anime.id
+        guard let episodes = anime.episodes,
+              let title = anime.title?.romaji,
+              let status = anime.status?.rawValue,
+              let imageURLString = URL(string: (anime.coverImage?.large)!)
         else {
             return nil
         }

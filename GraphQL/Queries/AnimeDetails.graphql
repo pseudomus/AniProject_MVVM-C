@@ -1,4 +1,4 @@
-query AnimeDetail($id: Int) {
+query AnimeDetail($id: Int!) {
   Media(id: $id, type: ANIME) {
     id
     title {
@@ -8,39 +8,13 @@ query AnimeDetail($id: Int) {
     }
     coverImage {
       large
-      color
     }
     description(asHtml: false)
     episodes
-    duration
     genres
     averageScore
-    meanScore
-    popularity
-    format
     status
     season
-    seasonYear
-    studios(isMain: true) {
-      nodes {
-        name
-      }
-    }
-    startDate {
-      year
-      month
-      day
-    }
-    endDate {
-      year
-      month
-      day
-    }
-    trailer {
-      id
-      site
-      thumbnail
-    }
   }
 }
 

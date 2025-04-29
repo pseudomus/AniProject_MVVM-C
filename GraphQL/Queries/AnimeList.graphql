@@ -11,6 +11,7 @@ query AnimeList($page: Int!) {
       status
       coverImage {
         medium
+        large
       }
     }
   }

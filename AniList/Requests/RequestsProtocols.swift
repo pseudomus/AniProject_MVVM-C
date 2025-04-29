@@ -13,7 +13,12 @@ protocol PageRequester {
 }
 
 protocol DetailRequester {
-    func requestDetail(id: Int) async throws -> AnimePreview
+    func requestDetail(id: Int) async throws -> AnimeDetail
+}
+
+protocol SearchRequester {
+    func search(name: String)
+    func requestNewSearchPage()
 }
 
 protocol AnimeObserver {
