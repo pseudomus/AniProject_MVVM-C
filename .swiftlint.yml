@@ -7,6 +7,7 @@ only_rules:
   - legacy_nsgeometry_functions
   - unused_optional_binding
   - unowned_variable_capture
+  - custom_rules
 
 excluded:
   - AniAPI

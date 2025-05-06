@@ -31,7 +31,6 @@ class AnimeListViewModel: AnimeListViewDataSource {
 
     func loadFirstPage() {
         guard !firstPageLoaded else { return }
-        print("entrou load first page")
         pageRequester.requestNewPage()
         firstPageLoaded.toggle()
     }

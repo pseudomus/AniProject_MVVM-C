@@ -100,7 +100,6 @@ extension AnimeRequester: SearchRequester {
     func requestNewSearchPage() {
         guard canRequestMorePages else { return }
         currentSearchPage += 1
-        print("entrou2")
         requestSearchList(search: currentSearch)
     }
 
@@ -112,17 +111,14 @@ extension AnimeRequester: SearchRequester {
             switch result {
             case .success(let listResult):
                 if let animes = listResult.data?.page?.media {
-                    print(animes)
                     let newAnimes = animes
                         .compactMap ({$0})
                         .compactMap({ result in
                             AnimePreview(anime: result)
                         })
-                    print(newAnimes)
                     self?.currentAnimes.value.append(contentsOf: newAnimes)
                 }
             case .failure(_):
-                print("erros")
                 self?.currentAnimes.send(completion: .failure(.requestError))
             }
             self?.canRequestMorePages = true

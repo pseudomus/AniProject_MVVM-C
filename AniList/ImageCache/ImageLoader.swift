@@ -24,8 +24,7 @@ final class ImageLoader: ObservableObject {
             return
         }
         URLSession.shared.dataTask(with: url) { [weak self] data, res, error in
-            if let error = error {
-                print("Error downloading image: \(error)")
+            if error != nil {
                 return
             }
             guard let data = data, let image = UIImage(data: data) else { return }
