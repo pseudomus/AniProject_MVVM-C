@@ -1,6 +1,6 @@
 query AnimeList($page: Int!) {
   Page(page: $page, perPage: 10) {
-    media(type: ANIME, sort: POPULARITY_DESC) {
+    media(type: ANIME, sort: POPULARITY_DESC, isAdult: false) {
       id
       title {
         romaji

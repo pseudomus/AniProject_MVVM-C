@@ -14,7 +14,9 @@ struct AnimeCell: View {
     var body: some View {
         ZStack {
             VStack {
-            CImageView(url: anime.image)
+                CImageView(url: anime.image)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                    .frame(width: 170, height: 230)
             }
             RoundedRectangle(cornerRadius: 20)
                 .foregroundStyle(.linearGradient(colors: [.clear,.clear,.black], startPoint: .top, endPoint: .bottom))

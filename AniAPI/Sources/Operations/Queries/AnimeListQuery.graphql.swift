@@ -7,7 +7,7 @@ public class AnimeListQuery: GraphQLQuery {
   public static let operationName: String = "AnimeList"
   public static let operationDocument: ApolloAPI.OperationDocument = .init(
     definition: .init(
-      #"query AnimeList($page: Int!) { Page(page: $page, perPage: 10) { __typename media(type: ANIME, sort: POPULARITY_DESC) { __typename id title { __typename romaji english native } episodes status coverImage { __typename medium large } } } }"#
+      #"query AnimeList($page: Int!) { Page(page: $page, perPage: 10) { __typename media(type: ANIME, sort: POPULARITY_DESC, isAdult: false) { __typename id title { __typename romaji english native } episodes status coverImage { __typename medium large } } } }"#
     ))
 
   public var page: Int
@@ -44,7 +44,8 @@ public class AnimeListQuery: GraphQLQuery {
         .field("__typename", String.self),
         .field("media", [Medium?]?.self, arguments: [
           "type": "ANIME",
-          "sort": "POPULARITY_DESC"
+          "sort": "POPULARITY_DESC",
+          "isAdult": false
         ]),
       ] }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import AniAPI
 
 struct AnimeDetail {
@@ -13,7 +14,7 @@ struct AnimeDetail {
     enum Status: String {
         case finished = "FINISHED",
              releasing = "RELEASING",
-             notYetReleased = "NOT_YET_RELEASED",
+             notYetReleased = "NOT YET RELEASED",
              cancelled = "CANCELLED",
              hiatus = "HIATUS"
     }
@@ -89,5 +90,22 @@ extension AnimeDetail {
                   description: description,
                   genres: genres,
                   averageScore: averageScore)
+    }
+}
+
+extension AnimeDetail.Status {
+    var color: Color {
+        switch self {
+        case .finished:
+            return .red
+        case .releasing:
+            return .green
+        case .notYetReleased:
+            return .gray
+        case .cancelled:
+            return .red
+        case .hiatus:
+            return .yellow
+        }
     }
 }

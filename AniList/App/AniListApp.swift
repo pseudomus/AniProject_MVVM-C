@@ -12,6 +12,7 @@ struct AniListApp: App {
     var body: some Scene {
         WindowGroup {
             CoordinatorView()
+                .preferredColorScheme(.dark)
         }
     }
 }

@@ -11,6 +11,8 @@ class AppCoordinatorImpl: AppCoordinatorProtocol {
 
     @Published var path: NavigationPath = NavigationPath()
 
+    private lazy var animeListViewModel = AnimeListViewModel()
+
     func push(_ screen: Screen) {
         path.append(screen)
     }
@@ -27,9 +29,9 @@ class AppCoordinatorImpl: AppCoordinatorProtocol {
     func build(_ screen : Screen) -> some View{
         switch screen{
         case .animeList:
-            AnimeListView()
+            AnimeListView(viewModel: animeListViewModel)
         case.animeDetail(let id):
-            AnimeDetailView()
+            AnimeDetailView(viewModel: AnimeDetailViewModel(id: id))
         }
     }
 }

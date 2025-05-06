@@ -18,6 +18,7 @@ class AnimeListViewModel: AnimeListViewDataSource {
     private let searchRequester: SearchRequester
     private let animeObserver: AnimeObserver
     private var subscriptions = Set<AnyCancellable>()
+    private var firstPageLoaded: Bool = false
 
     init() {
         self.pageRequester = AnimeRequester.shared
@@ -29,7 +30,10 @@ class AnimeListViewModel: AnimeListViewDataSource {
     }
 
     func loadFirstPage() {
+        guard !firstPageLoaded else { return }
+        print("entrou load first page")
         pageRequester.requestNewPage()
+        firstPageLoaded.toggle()
     }
 
     func loadNewPage(index: Int) {
@@ -37,7 +41,6 @@ class AnimeListViewModel: AnimeListViewDataSource {
             if searchText == "" {
                 pageRequester.requestNewPage()
             } else {
-                print("entrou")
                 searchRequester.requestNewSearchPage()
             }
         } 

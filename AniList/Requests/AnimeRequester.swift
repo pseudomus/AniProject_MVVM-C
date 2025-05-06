@@ -129,3 +129,27 @@ extension AnimeRequester: SearchRequester {
         }
     }
 }
+
+//MARK: - Detail Requester
+extension AnimeRequester: DetailRequester {
+    func requestDetail(id: Int) async throws -> AnimeDetail {
+        try await withCheckedThrowingContinuation { continuation in
+            cancellables = Network.shared.apolloClient.fetch(query: AnimeDetailQuery(id: id)) { result in
+                switch result {
+                case .success(let detailResult):
+                    guard
+                        let detail = detailResult.data?.media,
+                        let detailModel = AnimeDetail(anime: detail)
+                    else {
+                        continuation.resume(throwing: Errors.requestError)
+                        return
+                    }
+                    continuation.resume(returning: detailModel)
+
+                case .failure(let error):
+                    continuation.resume(throwing: error)
+                }
+            }
+        }
+    }
+}

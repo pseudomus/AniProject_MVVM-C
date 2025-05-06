@@ -20,8 +20,6 @@ struct CImageView: View {
             Image(uiImage: image)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .clipShape(RoundedRectangle(cornerRadius: 20))
-                .frame(width: 170, height: 230)
         } else {
             ProgressView()
         }

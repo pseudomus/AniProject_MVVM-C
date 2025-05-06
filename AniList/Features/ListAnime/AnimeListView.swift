@@ -19,10 +19,14 @@ protocol AnimeListViewDataSource: ObservableObject {
     func search(anime: String)
 }
 
-struct AnimeListView: View {
+struct AnimeListView<viewModel: AnimeListViewDataSource>: View {
 
-    @StateObject var vm = AnimeListViewModel()
+    @StateObject var vm: viewModel
     @EnvironmentObject var coordinator: AppCoordinatorImpl
+
+    init(viewModel: viewModel) {
+        _vm = .init(wrappedValue: viewModel)
+    }
 
     var body: some View {
         VStack {
@@ -44,17 +48,15 @@ struct AnimeListView: View {
                 }
             }
         }
+        .onAppear(perform: {
+            vm.loadFirstPage()
+        })
         .navigationTitle("Anime List")
         .padding()
         .searchable(text: $vm.searchText)
-        .onAppear {
-            vm.loadFirstPage()
-        }
-
-
     }
 }
 
 #Preview {
-    AnimeListView()
+    AnimeListView(viewModel: AnimeListViewModel())
 }
