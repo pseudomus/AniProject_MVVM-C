@@ -60,6 +60,8 @@ struct AnimeDetailView<viewModel: AnimeDetailVewDataSource>: View {
                             .foregroundStyle(anime.currentStatus?.color ?? Color.blue)
                     }
 
+                    Text("\(anime.averageScore)")
+
                     Text(anime.description
                         .replacingOccurrences(of: "<br>", with: "")
                         .replacingOccurrences(of: "<i>", with: ""))
