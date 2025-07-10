@@ -20,10 +20,14 @@ class AnimeListViewModel: AnimeListViewDataSource {
     private var subscriptions = Set<AnyCancellable>()
     private var firstPageLoaded: Bool = false
 
-    init() {
-        self.pageRequester = AnimeRequester.shared
-        self.animeObserver = AnimeRequester.shared
-        self.searchRequester = AnimeRequester.shared
+    init(
+        AnimePageRequester:PageRequester = AnimeRequester.shared,
+        animeObserver: AnimeObserver = AnimeRequester.shared,
+        animeSearchRequester: SearchRequester = AnimeRequester.shared
+    ) {
+        self.pageRequester = AnimePageRequester
+        self.animeObserver = animeObserver
+        self.searchRequester = animeSearchRequester
 
         subscribeToPublisher()
         observeSearchText()
